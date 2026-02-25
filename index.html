@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+
+<body>
+    <h1>
+        Cadastro
+    </h1>
+    <form method="get" action="formulario.php">
+        <label for="Nome">Nome</label>
+        <input type="text" name="Nome" id="Nome" value="Eby">
+        <br><br>
+
+        <label for="cpf">cpf</label>
+        <input type="text" name="cpf" id="cpf">
+        <br><br>
+
+        <label for="datnasc">Data de Nascimento</label>
+        <input type="date" name="datnasc" id="datnasc">
+        <br><br>
+
+        <label>Gênero:</label>
+        <input type="radio" name="genero" value="Masculino">
+        Masculino
+        <input type="radio" name="genero" value="Feminino">
+        Feminino
+        <br><br>
+        <select name="profissao">
+            <option>Professor(a)</option>
+            <option>Engenheiro(a)</option>
+            <option>Psicólogo(a)</option>
+            <option>Músico(a)</option>
+            <option>Médico(a)</option>
+            <option>Estudante(a)</option>
+        </select>
+        <br><br>
+        <label>Lazer:</label><br>
+        <input type="checkbox" name="lazer1" value="Futebol">Futebol
+        <input type="checkbox" name="lazer2" value="Nadar">Nadar
+        <input type="checkbox" name="lazer3" value="Programar">Programar
+        <input type="checkbox" name="lazer4" value="Academia">Academia
+        <br><br>
+        <label>Observação:</label><br>
+        <textarea name="observacao"></textarea>
+        <br><br>
+        <input type="submit" value="Enviar">
+
+
+    </form>
+</body>
+
+</html>
