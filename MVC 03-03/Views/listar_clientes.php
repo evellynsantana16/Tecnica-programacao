@@ -16,12 +16,21 @@
 
         <?php
         foreach($retorno as $dado){
+            
             echo "<tr>";
             echo "<td>{$dado[0]}</td>";
             echo "<td>{$dado[1]}</td>";
             echo "<td>{$dado[2]}</td>";
             echo "</tr>";
+            echo "<td>
+            <a href='index.php?controle=ClienteController&metodo=alterar&id={$dado[1]}' class='btn btn-warning'>
+                Alterar
+            </a>
+          </td>";
+
         }
+       
+        
         ?>
 
     </table>

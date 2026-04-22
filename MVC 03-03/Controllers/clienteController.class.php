@@ -1,27 +1,33 @@
 <?php
 
-class clienteController{
+class Cliente {
 
-    function inserir(){
+    private $conn;
 
+    public function __construct() {
+        $this->conn = new mysqli("localhost", "root", "", "lojaa");
     }
 
-
-    function alterar(){
-
+    public function listar() {
+        $sql = "SELECT * FROM clientes";
+        return $this->conn->query($sql);
     }
 
-
-    function listar(){
-
-        require_once "Models/Cliente.class.php";
-        $cliente = new Cliente();
-        $retorno = $cliente->clientes;
-        require_once "Views/listar_clientes.php";
+    public function salvar($dados) {
+        $sql = "INSERT INTO clientes (nome, email)
+                VALUES ('{$dados['nome']}', '{$dados['email']}')";
+        return $this->conn->query($sql);
     }
 
+    public function buscarPorId($id) {
+        $sql = "SELECT * FROM clientes WHERE id = $id";
+        return $this->conn->query($sql)->fetch_assoc();
+    }
 
-
-
+    public function atualizar($dados) {
+        $sql = "UPDATE clientes 
+                SET nome = '{$dados['nome']}', email = '{$dados['email']}'
+                WHERE id = {$dados['id']}";
+        return $this->conn->query($sql);
+    }
 }
-?>

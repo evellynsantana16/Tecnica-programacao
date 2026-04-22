@@ -1,23 +1,36 @@
 <?php
-if($_GET)
-{
-    $controle = $_GET["controle"];
-    $metodo = $_GET["metodo"];
-    require_once "Controllers/{$controle}.class.php";
-    $obj = new $controle();
-    
-    $obj->$metodo(); 
+
+require_once 'controllers/clienteController.php';
+
+$acao = $_GET['acao'] ?? 'listar_clientes';
+
+$controller = new ClienteController();
+
+switch ($acao) {
+
+    case 'listar_clientes':
+        $controller->listar();
+        break;
+
+    case 'cadastrar_cliente':
+        $controller->cadastrar();
+        break;
+
+    case 'salvar_cliente':
+        $controller->salvar();
+        break;
+
+    case 'editar_cliente':
+        $controller->editar();
+        break;
+
+    case 'atualizar_cliente':
+        $controller->atualizar();
+        break;
+
+    default:
+        echo "Ação inválida";
 }
-
-else {
-//incluindo a classe inicioController que esta na pasta Controllers
-require_once "Controllers/inicioController.class.php";
-
-// criando um objeto usando o modelo (classe) inicioController
-$obj = new inicioController();
-$obj->inicio();
-}
-
 
 
 
