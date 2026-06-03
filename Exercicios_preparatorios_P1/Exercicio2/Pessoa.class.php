@@ -1,0 +1,27 @@
+<?php
+    abstract class Pessoa {
+        public function __construct(
+            protected string $nome = "",
+            int $ddd = 0,
+            string $numero = ""
+        )
+        {
+            //composição
+            $this->telefones[] = new Telefone($ddd, $numero);
+        }
+
+        public function getNome(){
+            return $this->nome;
+        }
+
+        public function setNome($nome) {
+            $this->nome = $nome;
+        }
+        public function getTelefones(){
+            return $this->telefones;
+        }
+        public function setTelefones($ddd, $numero){
+            $this->telefones[] = new Telefone($ddd, $numero);
+        }
+    }
+?>
